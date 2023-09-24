@@ -7,7 +7,7 @@ const Banner = () => {
         alt=""
       />
       <div className="flex flex-col justify-center items-center h-96">
-        <h1 className="text-xl px-5 md:px-0 md:text-3xl lg:text-5xl font-bold pb-10">
+        <h1 className="text-xl px-5 md:px-0 md:text-3xl lg:text-5xl font-bold pb-10  text-center">
           I Grow By Helping People In Need
         </h1>
         <div className="flex">
