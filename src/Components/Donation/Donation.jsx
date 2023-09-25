@@ -5,7 +5,6 @@ import { Link, useLoaderData } from "react-router-dom";
 const DonatedCards = () => {
   const cards = useLoaderData();
   const [cardLength, setCardLength] = useState(4);
-
   const [donatedCards, setDonatedCards] = useState([]);
 
   useEffect(() => {
@@ -72,7 +71,7 @@ const DonatedCards = () => {
       </div>
       <div
         className={
-          donatedCards.length === cardLength
+          cardLength >= donatedCards.length
             ? "hidden"
             : "flex justify-center mt-5"
         }
