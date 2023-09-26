@@ -1,25 +1,25 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 import { saveDonatedCard } from "../Utility/LocalStorage";
+
+const showAlert = () => {
+  Swal.fire({
+    title: "Thanks!",
+    text: "Your donation was successful.",
+    icon: "success",
+  });
+};
 
 const CardDetails = () => {
   const cards = useLoaderData();
   const { id } = useParams();
   const idInt = parseInt(id);
-  // if (!Array.isArray(cards) || cards.length === 0) {
-  //   return (
-  //     <div className="p-5  w-full text-xl font-bold md:text-3xl ">
-  //       No card data available
-  //     </div>
-  //   );
-  // }
 
   const card = cards.find((card) => card.id === idInt);
 
   const { picture, title, button_bg, description, price } = card;
   const handleCardDonation = () => {
-    toast("Wow Your Donation is successful !");
+    showAlert();
     saveDonatedCard(idInt);
   };
 
@@ -43,7 +43,6 @@ const CardDetails = () => {
       </div>
       <h1 className="text-4xl mt-10 font-bold ">{title}</h1>
       <p className="mt-5 mb-10 ">{description}</p>
-      <ToastContainer />
     </div>
   );
 };

@@ -19,7 +19,7 @@ const DonatedCards = () => {
       }
       setDonatedCards(donatedCards);
     }
-  }, [donatedCards, cards]);
+  }, [cards]);
   return (
     <div className="my-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">

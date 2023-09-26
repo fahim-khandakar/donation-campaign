@@ -7,7 +7,6 @@ const Banner = () => {
   const [output, setOutput] = useState([]);
 
   useEffect(() => {
-    // Load data from "data.json" when the component mounts
     fetch("data.json")
       .then((res) => res.json())
       .then((data) => setCards(data));
@@ -15,7 +14,7 @@ const Banner = () => {
 
   const handleSearch = () => {
     const outputValue = cards.filter((card) =>
-      card.title.toLowerCase().includes(searchTerm.toLowerCase())
+      card.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setOutput(outputValue);
   };
