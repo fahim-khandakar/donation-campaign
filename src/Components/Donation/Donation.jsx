@@ -3,14 +3,13 @@ import { getDonatedCard } from "../Utility/LocalStorage";
 import { Link, useLoaderData } from "react-router-dom";
 
 const DonatedCards = () => {
-  const cards = useLoaderData();
   const [cardLength, setCardLength] = useState(4);
   const [donatedCards, setDonatedCards] = useState([]);
+  const cards = useLoaderData();
 
   useEffect(() => {
     const storedCardsIds = getDonatedCard();
     if (cards.length > 0) {
-      // const jobsApplied = jobs.filter((job) => storedJobIds.includes(job.id));
       const donatedCards = [];
       for (const id of storedCardsIds) {
         const card = cards.find((card) => card.id === id);
@@ -20,8 +19,7 @@ const DonatedCards = () => {
       }
       setDonatedCards(donatedCards);
     }
-  }, [cards]);
-
+  }, [donatedCards, cards]);
   return (
     <div className="my-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
