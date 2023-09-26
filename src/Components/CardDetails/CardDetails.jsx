@@ -37,7 +37,7 @@ const CardDetails = () => {
             style={{ background: button_bg }}
             className=" mt-3 ml-5 py-2 px-5 text-white  rounded-lg font-bold"
           >
-            Donate {price}
+            Donate ${price}
           </button>
         </div>
       </div>
