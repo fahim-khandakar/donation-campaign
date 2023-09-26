@@ -31,7 +31,7 @@ const DonatedCards = () => {
           donatedCards.slice(0, cardLength).map((card) => (
             <div
               style={{ background: card.card_bg }}
-              className="mt-5 flex items-center h-[200px] rounded-lg"
+              className="mt-5 mx-5 lg:mx-0 flex items-center h-[200px] rounded-lg"
               key={card.id}
             >
               <div className="flex  items-center">
@@ -42,7 +42,7 @@ const DonatedCards = () => {
                     alt=""
                   />
                 </div>
-                <div className="w-1/2 pl-5 pr-10">
+                <div className="w-1/2 pl-3 lg:pl-5 pr-2 lg:pr-10">
                   <button
                     className="py-1 px-2 rounded-sm"
                     style={{
@@ -52,7 +52,9 @@ const DonatedCards = () => {
                   >
                     {card.category}
                   </button>
-                  <h2 className="font-semibold text-2xl">{card.title}</h2>
+                  <h2 className="font-semibold text-lg md:text-2xl">
+                    {card.title}
+                  </h2>
                   <p
                     style={{ color: card.text_color }}
                     className="  font-extrabold "
@@ -62,7 +64,7 @@ const DonatedCards = () => {
                   <Link to={`/card/${card.id}`}>
                     <button
                       style={{ background: card.button_bg }}
-                      className=" px-4 py-1 font-bold rounded-sm mt-3 text-white"
+                      className=" px-2 lg:px-4 py-1 text-xs lg:text-base font-bold rounded-sm mt-3 text-white"
                     >
                       View Details
                     </button>
