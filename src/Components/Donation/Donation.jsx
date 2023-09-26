@@ -25,49 +25,55 @@ const DonatedCards = () => {
   return (
     <div className="my-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
-        {donatedCards.slice(0, cardLength).map((card) => (
-          <div
-            style={{ background: card.card_bg }}
-            className="mt-5 flex items-center h-[200px] rounded-lg"
-            key={card.id}
-          >
-            <div className="flex  items-center">
-              <div className="w-1/2 ">
-                <img
-                  className="w-full h-[200px] object-cover"
-                  src={card.picture}
-                  alt=""
-                />
-              </div>
-              <div className="w-1/2 pl-5 pr-10">
-                <button
-                  className="py-1 px-2 rounded-sm"
-                  style={{
-                    background: card.category_bg,
-                    color: card.text_color,
-                  }}
-                >
-                  {card.category}
-                </button>
-                <h2 className="font-semibold text-2xl">{card.title}</h2>
-                <p
-                  style={{ color: card.text_color }}
-                  className="  font-extrabold "
-                >
-                  ${card.price}
-                </p>
-                <Link to={`/card/${card.id}`}>
+        {!donatedCards.length > 0 ? (
+          <div className="p-5  w-full text-xl font-bold md:text-3xl ">
+            <p>No Donation Data Found!</p>
+          </div>
+        ) : (
+          donatedCards.slice(0, cardLength).map((card) => (
+            <div
+              style={{ background: card.card_bg }}
+              className="mt-5 flex items-center h-[200px] rounded-lg"
+              key={card.id}
+            >
+              <div className="flex  items-center">
+                <div className="w-1/2 ">
+                  <img
+                    className="w-full h-[200px] object-cover"
+                    src={card.picture}
+                    alt=""
+                  />
+                </div>
+                <div className="w-1/2 pl-5 pr-10">
                   <button
-                    style={{ background: card.button_bg }}
-                    className=" px-4 py-1 font-bold rounded-sm mt-3 text-white"
+                    className="py-1 px-2 rounded-sm"
+                    style={{
+                      background: card.category_bg,
+                      color: card.text_color,
+                    }}
                   >
-                    View Details
+                    {card.category}
                   </button>
-                </Link>
+                  <h2 className="font-semibold text-2xl">{card.title}</h2>
+                  <p
+                    style={{ color: card.text_color }}
+                    className="  font-extrabold "
+                  >
+                    ${card.price}
+                  </p>
+                  <Link to={`/card/${card.id}`}>
+                    <button
+                      style={{ background: card.button_bg }}
+                      className=" px-4 py-1 font-bold rounded-sm mt-3 text-white"
+                    >
+                      View Details
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
       <div
         className={

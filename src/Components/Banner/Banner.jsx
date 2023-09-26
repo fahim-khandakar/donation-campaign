@@ -1,4 +1,24 @@
+import { useEffect, useState } from "react";
+import Card from "../Card/Card";
+
 const Banner = () => {
+  const [cards, setCards] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [output, setOutput] = useState([]);
+
+  useEffect(() => {
+    // Load data from "data.json" when the component mounts
+    fetch("data.json")
+      .then((res) => res.json())
+      .then((data) => setCards(data));
+  }, []);
+
+  const handleSearch = () => {
+    const outputValue = cards.filter((card) =>
+      card.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setOutput(outputValue);
+  };
   return (
     <div className="max-w-6xl">
       <img
@@ -12,14 +32,25 @@ const Banner = () => {
         </h1>
         <div className="flex">
           <input
+            id="input-field"
             className="border rounded-md pl-5 md:w-[400px]"
             type="text"
             placeholder="Search here..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="bg-[#FF444A] text-white py-2 px-5 rounded-tr-md rounded-br-md">
+          <button
+            onClick={handleSearch}
+            className="bg-[#FF444A] text-white py-2 px-5 rounded-tr-md rounded-br-md"
+          >
             Search
           </button>
         </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 ">
+        {output.length > 0
+          ? output.map((card) => <Card card={card} key={card.id}></Card>)
+          : cards.map((card) => <Card card={card} key={card.id}></Card>)}
       </div>
     </div>
   );

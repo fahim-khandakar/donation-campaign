@@ -37,11 +37,11 @@ const Statistics = () => {
       </div>
       <div className="flex mt-5 gap-10 w-full md:gap-20 justify-center">
         <p>
-          Your Donation {cardsStoredLength.toFixed(2)}%
+          Your Donation {fullCardsLength.toFixed(2)}%
           <span className="rounded-md px-3 h-[1px] md:px-5 ml-2 bg-[#00C49F]"></span>
         </p>
         <p>
-          Total Donation {fullCardsLength.toFixed(2)}%
+          Total Donation {cardsStoredLength.toFixed(2)}%
           <span className="rounded-md px-3 md:px-5 ml-2 bg-[#FF444A]"></span>
         </p>
       </div>
