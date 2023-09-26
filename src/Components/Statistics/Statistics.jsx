@@ -15,7 +15,6 @@ const Statistics = () => {
   const allCardsLength = singleLength * cardsLength;
   const fullCardsLength = singleLength * storedCardsLength;
   const cardsStoredLength = allCardsLength - fullCardsLength;
-  console.log(singleLength, allCardsLength, cardsStoredLength, fullCardsLength);
 
   const data = {
     datasets: [
